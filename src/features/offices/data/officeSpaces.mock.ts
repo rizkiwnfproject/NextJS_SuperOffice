@@ -76,7 +76,7 @@ export const officeSpaces: OfficeSpace[] = [
         photo: "/assets/images/photos/photo-2.png",
       },
     ],
-    tags: ["Featured", "New"],
+    tags: ["Featured"],
   },
   {
     id: 3,
@@ -114,7 +114,7 @@ export const officeSpaces: OfficeSpace[] = [
         photo: "/assets/images/photos/photo-2.png",
       },
     ],
-    tags: ["Startup", "Business"],
+    tags: ["Startup"],
   },
   {
     id: 4,
@@ -152,7 +152,7 @@ export const officeSpaces: OfficeSpace[] = [
         photo: "/assets/images/photos/photo-2.png",
       },
     ],
-    tags: ["Design", "Best Seller"],
+    tags: ["Best Seller"],
   },
   {
     id: 5,
@@ -190,6 +190,6 @@ export const officeSpaces: OfficeSpace[] = [
         photo: "/assets/images/photos/photo-1.png",
       },
     ],
-    tags: ["AI", "International"],
+    tags: ["International"],
   },
 ];

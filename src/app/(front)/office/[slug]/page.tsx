@@ -188,7 +188,7 @@ export default async function OfficeSpaceDetailPage({ params }: Props) {
                 </button>
               ) : (
                 <a
-                  href={`https://wa.me/6289525001655?text=Saya ingin booking kantor ${office.title} detailsnya http://localhost:3000/office/${office.slug}`}
+                  href={`https://wa.me/6289525001655?text=Saya ingin booking kantor ${office.title} detailsnya https://next-js-super-office.vercel.app/office/${office.slug}`}
                   className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
                 >
                   <Image

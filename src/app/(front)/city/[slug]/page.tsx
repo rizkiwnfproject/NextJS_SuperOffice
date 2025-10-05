@@ -3,16 +3,16 @@ import { cities } from "@/features/cities/data/cities.mock";
 import OfficeSpaceCard from "@/features/offices/components/OfficeSpaceCard";
 import { officeSpaces } from "@/features/offices/data/officeSpaces.mock";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-const CitySpaceDetailPage = ({ params }: Props) => {
-  const city = cities.find((c) => c.slug === params.slug);
+export default async function CitySpaceDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const city = cities.find((c) => c.slug === slug);
 
   if (!city) return notFound();
 
@@ -44,8 +44,8 @@ const CitySpaceDetailPage = ({ params }: Props) => {
             className="absolute right-0 w-[calc(100%-((100%-1130px)/2)-305px)] h-[434px] rounded-bl-[40px] overflow-hidden"
           >
             <Image
-            width={980}
-            height={434}
+              width={980}
+              height={434}
               src="/assets/images/thumbnails/thumbnail-details-4.png"
               className="w-full h-full object-cover"
               alt="hero background"
@@ -74,6 +74,4 @@ const CitySpaceDetailPage = ({ params }: Props) => {
       </section>
     </>
   );
-};
-
-export default CitySpaceDetailPage;
+}

@@ -8,18 +8,20 @@ import { notFound } from "next/navigation";
 import React from "react";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-const OfficeSpaceDetailPage = ({ params }: Props) => {
-  const office = officeSpaces.find((item) => item.slug === params.slug);
+export default async function OfficeSpaceDetailPage({ params }: Props) {
+  const { slug } = await params;
+
+  const office = officeSpaces.find((item) => item.slug === slug);
 
   if (!office) return notFound();
 
   return (
     <>
       <Navbar />
-      <OfficeHeader image={office.image} images={office.images}/>
+      <OfficeHeader image={office.image} images={office.images} />
 
       <section
         id="Details"
@@ -90,7 +92,7 @@ const OfficeSpaceDetailPage = ({ params }: Props) => {
           <p className="leading-[30px]">{office.about}</p>
           <hr className="border-[#F6F5FD]" />
           <h2 className="font-bold">You Get What You Need Most</h2>
-          <OfficeFeatures features={office.features}/>
+          <OfficeFeatures features={office.features} />
           <hr className="border-[#F6F5FD]" />
           <div className="flex flex-col gap-[6px]">
             <h2 className="font-bold">Office Address</h2>
@@ -186,7 +188,7 @@ const OfficeSpaceDetailPage = ({ params }: Props) => {
                 </button>
               ) : (
                 <a
-                  href="booking.html"
+                  href={`https://wa.me/6289525001655?text=Saya ingin booking kantor ${office.title} detailsnya http://localhost:3000/office/${office.slug}`}
                   className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
                 >
                   <Image
@@ -212,6 +214,4 @@ const OfficeSpaceDetailPage = ({ params }: Props) => {
       </section>
     </>
   );
-};
-
-export default OfficeSpaceDetailPage;
+}

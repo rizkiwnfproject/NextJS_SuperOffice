@@ -177,7 +177,7 @@ export const officeSpaces: OfficeSpace[] = [
       "Gala Dinner",
       "Exclusive Access",
     ],
-    isFullyBooked: false,
+    isFullyBooked: true,
     salesContacts: [
       {
         name: "Samuel Lee",

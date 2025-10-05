@@ -9,7 +9,7 @@ export type OfficeSpace = {
   location: string;
   rating: number;
   tags: string[];
-  image: string[];
+  image: string;
   images: string[];
   features: string[];
   salesContacts: SalesContact[];
